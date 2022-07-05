@@ -19,22 +19,16 @@ jobs:
           - name: install request
             run: |
               python -m pip install requests
-          - name: install googlemaps
-            run: |
-              python -m pip install -U googlemaps
           - name: install bs4
             run: |
               python -m pip install bs4
           - name: List files
             run: |
               ls -R
-          - name: install request
-            run: |
-              python -m pip install requests
           - name: install pandas
             run: |
               python -m pip install pandas
-          - name: install pandas
+          - name: Run python script
             run: |
               python annuare.py
           - name: List files 2
