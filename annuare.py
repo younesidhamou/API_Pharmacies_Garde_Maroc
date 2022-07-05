@@ -29,7 +29,10 @@ for ville in open('href.txt','r'):
                 req=Request("https://www.annuaire-gratuit.ma/pharmacies"+k[1], headers={'User-Agent': 'Mozilla/5.0'})
                 webpage = urlopen(req).read()
                 soup=BeautifulSoup(webpage,'lxml')
-                num.append(soup.find(attrs={"itemprop":"telephone"}).get('href').replace("tel:",''))
+                try:
+                        num.append(soup.find(attrs={"itemprop":"telephone"}).get('href').replace("tel:",''))
+                except:
+                        num.append("0000000000")
                 etat.append(soup.find("table",attrs={"class":"pharma_history"}).find_all("tr")[-1].find_all("td")[-1].text.replace("Garde ",""))
                 add=soup.find('address')
                 try:
