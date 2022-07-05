@@ -37,9 +37,9 @@ for ville in open('href.txt','r'):
                 except:
                         adresse.append("")
                 try:
-                        coordonee.append(add.find('a').get('href').replace("http://maps.google.com/maps?q=",''))
+                        coordonee.append(add.find('a').get('href').replace("http://maps.google.com/maps?q=",'').replace(",",', '))
                 except:
-                        coordonee.append("00.00000000,0.00000000")
+                        coordonee.append("00.00000000, 0.00000000")
 df=pd.DataFrame(pharmacies)
 df[3]=adresse
 df[4]=coordonee
